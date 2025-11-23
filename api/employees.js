@@ -1,18 +1,17 @@
 import express from "express";
-const router = express.Router();
-export default router;
-
 import {
   getEmployees,
   getEmployee,
   createEmployee,
   updateEmployee,
   deleteEmployee,
-} from "#db/queries/employees.js";
+} from "../db/queries/employees.js";
 
-// Helper to check if id is a valid positive integer
+const router = express.Router();
+
+// Helper: check if id is a numeric integer (allow 0 for 404 testing)
 function isValidId(id) {
-  return /^\d+$/.test(id) && Number(id) > 0;
+  return /^\d+$/.test(id);
 }
 
 // === GET /employees ===
@@ -96,3 +95,5 @@ router.put("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
+export default router;

@@ -1,5 +1,5 @@
 import express from "express";
-import employeesRouter from "#api/employees.js";
+import employeesRouter from "./api/employees.js";
 const app = express();
 export default app;
 

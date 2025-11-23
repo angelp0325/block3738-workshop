@@ -1,4 +1,4 @@
-import db from "#db/client.js";
+import db from "../client.js";
 /** @returns the employee created according to the provided details */
 export async function createEmployee({ name, birthday, salary }) {
   const { rows } = await db.query(
